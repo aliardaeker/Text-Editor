@@ -1,0 +1,40 @@
+﻿<Window x:Class="TextEditor.MainWindow" Name="mainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TextEditor"
+        mc:Ignorable="d"
+        Title="Text Editor" Height="346" Width="801"
+        SizeChanged="update_size">
+    <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_Save" x:Name="save" Click="save_Click"/>
+                <MenuItem Header="_Save As" x:Name="saveAs" Click="saveAs_Click"/>
+                <MenuItem Header="_Help" x:Name="help" Click="help_Click"/>
+            </Menu>
+        </DockPanel>
+        <Label x:Name="label1" HorizontalAlignment="Left" Margin="1,20,0,0" Width="Auto" />
+        <Label x:Name="label2" HorizontalAlignment="Center" Margin="1,20,0,0" Width="Auto"/>
+        <Label x:Name="label3" HorizontalAlignment="Right" Margin="1,20,0,0" Width="Auto"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Stretch" Height="23" Margin="1,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" KeyUp="textBox_KeyUp"/>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Margin="1,71,0,27" Width="Auto" HorizontalAlignment="Stretch" Name="scrollViewer">
+            <DataGrid HeadersVisibility="None" x:Name="dataGrid" AutoGenerateColumns="False" ItemsSource="{Binding}" KeyUp="dataGrid_KeyUp" MouseMove="OnMouseMove">
+                <DataGrid.Resources>
+                    <Style TargetType="DataGridRow">
+                        <EventSetter Event="MouseEnter" Handler="RowMouseEnter"/>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Foreground="Brown" IsReadOnly="True" Width="80" Binding ="{Binding lineNum}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="595" Binding ="{Binding data}"></DataGridTextColumn>
+                    <DataGridTextColumn Foreground="Coral" Width="90" Binding ="{Binding suffix}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+        <Label x:Name="lineCursor" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="Auto" />
+        <Label x:Name="columnCursor" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="Auto"/>
+        <Label x:Name="filesRing" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="Auto"/>
+    </Grid>
+</Window>
