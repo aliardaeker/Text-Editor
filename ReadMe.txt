@@ -1,7 +1,6 @@
 Ali Arda Eker
-CS 360 Final Project
 
-	Program fullfills all of the requirements. It responds all the command line
+	Program fullfills all of the requirements of a text editor. It responds all the command line
 and suffix inputs and performs as expected. Information about the commands can be found
 on help.
 
@@ -13,6 +12,6 @@ work because of the blank space in Final Project.
 	Notice 2: User should press enter after writing a command line or suffix input 
 for program to scan it.
 
-	Extra Credit: User can use * in change and replace commands to scan all the document.
+	Notice 3: User can use * in change and replace commands to scan all the document.
 In replace it scans from the current line to the end of file if user use it in second command,
 or it scans all of the file if user use it as third command. 
